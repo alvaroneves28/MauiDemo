@@ -1,19 +1,27 @@
-﻿namespace MauiDemo
+﻿namespace MauiDemo;
+
+public partial class App : Application
 {
-    public partial class App : Application
+    public App()
     {
-        public App()
+        InitializeComponent();
+    }
+
+    protected override Window CreateWindow(IActivationState? activationState)
+    {
+        var tabbedPage = new TabbedPageDemo();
+
+        var navPage = new NavigationPage(new MinhaPágina())
         {
-            InitializeComponent();
+            Title = "Início",
+            BarBackgroundColor = Colors.Yellow,
+            BarTextColor = Colors.Blue
+        };
 
-            var navPage = new NavigationPage(new MinhaPágina());
+        tabbedPage.Children.Add(navPage);
 
-            navPage.BarBackground = Colors.Yellow;
-            navPage.BarTextColor = Colors.Blue;
-
-            MainPage = navPage;
-        }
-
-        
+        return new Window(tabbedPage);
     }
 }
+
+
