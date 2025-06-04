@@ -9,7 +9,7 @@ public partial class App : Application
 
     protected override Window CreateWindow(IActivationState? activationState)
     {
-        var navPage = new NavigationPage(new StackLayoutDemo());
+        var navPage = new NavigationPage(new GridLayoutDemo());
         
         return new Window(navPage);
     }
